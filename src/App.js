@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <nav>
-          <form action="">
+        <nav className="nav-bar">
+          <form className="form" action="">
             <input type="text" placeholder="Type in a city name" />
             <button>FIND WEATHER</button>
           </form>
