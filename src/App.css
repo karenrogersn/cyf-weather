@@ -54,7 +54,6 @@ body {
   border-style: none;
   border-bottom: solid rgb(47, 64, 138);
   border-width: 0.1px;
-  /* width: 10em; */
   margin-right: 1em;
   /* outline property set to none allows to remove border when input is clicked */
   outline: none;
