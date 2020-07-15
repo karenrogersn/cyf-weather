@@ -1,12 +1,14 @@
 import React from 'react';
-import overcast from './../img/weather-icons/weather02-512.jpg';
-import './../App.css';
+import overcast from '../../img/weather-icons/weather02-512.jpg';
+// import FutureWeatherSingle from './../FutureWeatherSingle/FutureWeatherSingle';
+import './../../App.css';
 
 const FutureWeather = (props) => {
   //passing data from json file as props
   const jsonData = props.FakeWeather;
   return (
     <div>
+      {/* <FutureWeatherSingle jsonData={props.jsonData} /> */}
       <section className="detailed-forecast">
         <div>
           <p>{jsonData.list[5].dt_txt.slice(-8, -3)}</p>

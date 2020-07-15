@@ -1,9 +1,9 @@
 import React from 'react';
-import overcast from './../img/weather-icons/weather02-512.jpg';
-import './../App.css';
+import overcast from '../../img/weather-icons/weather02-512.jpg';
+import './../../App.css';
 
 //importing data from json file
-import FakeWeatherData from './../data/FakeWeather.json';
+import FakeWeatherData from '../../data/FakeWeather.json';
 
 const CurrentWeather = (props) => {
   const theWeather = FakeWeatherData.list;
