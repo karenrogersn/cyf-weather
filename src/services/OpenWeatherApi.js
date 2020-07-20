@@ -10,12 +10,10 @@ const instance = axios.create({
   baseURL: 'http://api.openweathermap.org'
 });
 
-// const city = 'London';
-
-const fetchData = (city) => {
+const fetchData = (name) => {
   return new Promise((resolve, reject) => {
     instance
-      .get(`/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${apiKey}`)
+      .get(`/data/2.5/forecast?q=${name}&cnt=8&units=metric&appid=${apiKey}`)
       .then((response) => {
         console.log('response.data: ', response.data);
         // const weatherInfo = response.data;

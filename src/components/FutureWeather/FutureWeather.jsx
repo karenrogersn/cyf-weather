@@ -5,46 +5,47 @@ import './../../App.css';
 
 const FutureWeather = (props) => {
   //passing data from json file as props
-  const jsonData = props.FakeWeather;
+  // const weatherInfo = props.weatherData;
   return (
     <div>
       {/* <FutureWeatherSingle jsonData={props.jsonData} /> */}
       <section className="detailed-forecast">
-        <div>
-          <p>{jsonData.list[5].dt_txt.slice(-8, -3)}</p>
+        <p>Future Weather</p>
+        {/* <div>
+          <p>{weatherInfo.list[5].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[5].main.temp}</p>
+          <p>{weatherInfo.list[5].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[6].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[6].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[6].main.temp}</p>
+          <p>{weatherInfo.list[6].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[7].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[7].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[7].main.temp}</p>
+          <p>{weatherInfo.list[7].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[8].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[8].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[8].main.temp}</p>
+          <p>{weatherInfo.list[8].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[9].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[9].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[9].main.temp}</p>
+          <p>{weatherInfo.list[9].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[10].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[10].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[10].main.temp}</p>
+          <p>{weatherInfo.list[10].main.temp}</p>
         </div>
         <div>
-          <p>{jsonData.list[11].dt_txt.slice(-8, -3)}</p>
+          <p>{weatherInfo.list[11].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[11].main.temp}</p>
-        </div>
+          <p>{weatherInfo.list[11].main.temp}</p>
+        </div> */}
       </section>
     </div>
   );
