@@ -4,8 +4,6 @@ import './App.css';
 import CurrentWeather from '../src/components/CurrentWeather/CurrentWeather.jsx';
 import FutureWeather from '../src/components/FutureWeather/FutureWeather.jsx';
 import Search from '../src/components/Search/Search.jsx';
-// import SearchLogic from './components/SearchLogic/SearchLogic.jsx';
-// import FakeWeather from './data/FakeWeather.json';
 
 import Axios from 'axios';
 
@@ -13,10 +11,8 @@ require('dotenv').config();
 
 class App extends Component {
   state = {
-    // jsonData: FakeWeather,
-    weatherInCities: {},
-    query: '',
-    isLoading: false
+    weatherInCities: [],
+    query: ''
   };
 
   componentDidMount() {
@@ -24,7 +20,7 @@ class App extends Component {
   }
 
   fetchWeatherData = () => {
-    const city = 'San Francisco';
+    const city = 'London';
     const apiKey = process.env.REACT_APP_WEATHER_API;
     Axios.get(
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${apiKey}`
@@ -50,17 +46,16 @@ class App extends Component {
   };
 
   render() {
-    // const weatherInCities = ;
     return (
       <div className="app">
         <main className="app__main">
-          {/* <Search
+          <Search
             cityQuery={this.state.query}
             click={this.fetchWeatherData}
             handleInputChange={this.updateSearchQuery}
-          /> */}
-          <CurrentWeather weatherData={this.state.weatherInCities} loading={this.state.isLoading} />
-          <FutureWeather /* weatherData={this.state.weatherInCities} */ />
+          />
+          <CurrentWeather weatherData={this.state.weatherInCities} />
+          <FutureWeather weatherData={this.state.weatherInCities} />
         </main>
       </div>
     );

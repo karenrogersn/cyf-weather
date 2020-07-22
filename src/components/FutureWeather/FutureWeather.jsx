@@ -10,7 +10,7 @@ const FutureWeather = (props) => {
     <div>
       {/* <FutureWeatherSingle jsonData={props.jsonData} /> */}
       <section className="detailed-forecast">
-        <p>Future Weather</p>
+        <p>Future Weather Here</p>
         {/* <div>
           <p>{weatherInfo.list[5].dt_txt.slice(-8, -3)}</p>
           <img className="next-forecast" src={overcast} alt="clouds icon" />
