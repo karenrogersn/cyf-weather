@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import CurrentWeather from '../src/components/CurrentWeather/CurrentWeather.jsx';
-import FutureWeather from '../src/components/FutureWeather/FutureWeather.jsx';
+// import FutureWeather from '../src/components/FutureWeather/FutureWeather.jsx';
 import Search from '../src/components/Search/Search.jsx';
 
 import Axios from 'axios';
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   fetchWeatherData = () => {
-    const city = 'London';
+    const city = this.state.query;
     const apiKey = process.env.REACT_APP_WEATHER_API;
     Axios.get(
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=${apiKey}`
@@ -45,17 +45,25 @@ class App extends Component {
     });
   };
 
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="app">
         <main className="app__main">
           <Search
+            handleSubmit={this.handleSubmit}
             cityQuery={this.state.query}
             click={this.fetchWeatherData}
             handleInputChange={this.updateSearchQuery}
           />
           <CurrentWeather weatherData={this.state.weatherInCities} />
-          <FutureWeather weatherData={this.state.weatherInCities} />
+          {/* <FutureWeather
+            weatherData={this.state.weatherInCities}
+      
+          /> */}
         </main>
       </div>
     );

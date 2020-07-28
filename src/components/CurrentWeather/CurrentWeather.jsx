@@ -1,5 +1,6 @@
 import React from 'react';
 import './../../App.css';
+import FutureWeather from './../FutureWeather/FutureWeather';
 
 import clear from './../../img/weather-icons/clear.svg';
 import drizzle from './../../img/weather-icons/drizzle.svg';
@@ -9,7 +10,6 @@ import pcloudy from './../../img/weather-icons/partlycloudy.svg';
 import rain from './../../img/weather-icons/rain.svg';
 import snow from './../../img/weather-icons/snow.svg';
 import storm from './../../img/weather-icons/storm.svg';
-import FutureWeather from '../FutureWeather/FutureWeather';
 
 const CurrentWeather = (props) => {
   let weatherInfo = props.weatherData.list;
@@ -17,40 +17,46 @@ const CurrentWeather = (props) => {
   if (!weatherInfo) {
     return 'No info to display';
   }
+
   let id = props.weatherData.list[0].weather[0].id;
-  switch (true) {
-    case id < 300:
-      id = <img className="forecast-img" src={storm} alt="storm icon" />;
-      break;
-    case id >= 300 && id < 500:
-      id = <img className="forecast-img" src={drizzle} alt="drizzle icon" />;
-      break;
-    case id >= 500 && id < 600:
-      id = <img className="forecast-img" src={rain} alt="rain icon" />;
-      break;
-    case id >= 600 && id < 700:
-      id = <img className="forecast-img" src={snow} alt="snow icon" />;
-      break;
-    case id >= 700 && id < 800:
-      id = <img className="forecast-img" src={fog} alt="fog icon" />;
-      break;
-    case id === 800:
-      id = <img className="forecast-img" src={clear} alt="clear icon" />;
-      break;
-    case id === 801:
-      id = <img className="forecast-img" src={pcloudy} alt="particularly cloudy icon" />;
-      break;
-    case id > 800 && id < 806:
-      id = <img className="forecast-img" src={mcloudy} alt="mostly cloudy icon" />;
-      break;
-    default:
-      id = 'missing id';
+
+  function renderSwitch() {
+    switch (true) {
+      case id < 300:
+        id = <img className="forecast-img" src={storm} alt="storm icon" />;
+        break;
+      case id >= 300 && id < 500:
+        id = <img className="forecast-img" src={drizzle} alt="drizzle icon" />;
+        break;
+      case id >= 500 && id < 600:
+        id = <img className="forecast-img" src={rain} alt="rain icon" />;
+        break;
+      case id >= 600 && id < 700:
+        id = <img className="forecast-img" src={snow} alt="snow icon" />;
+        break;
+      case id >= 700 && id < 800:
+        id = <img className="forecast-img" src={fog} alt="fog icon" />;
+        break;
+      case id === 800:
+        id = <img className="forecast-img" src={clear} alt="clear icon" />;
+        break;
+      case id === 801:
+        id = <img className="forecast-img" src={pcloudy} alt="particularly cloudy icon" />;
+        break;
+      case id > 800 && id < 806:
+        id = <img className="forecast-img" src={mcloudy} alt="mostly cloudy icon" />;
+        break;
+      default:
+        id = 'missing id';
+    }
+    return id;
   }
 
   return (
     <section className="general-forecast">
       <div className="forecast-caption">
-        {id}
+        {/* {props.weatherIcon} */}
+        {renderSwitch()}
         <p>{weatherInfo[0].weather[0].description}</p>
         <div className="temperature">
           <p>
@@ -73,6 +79,7 @@ const CurrentWeather = (props) => {
           </ul>
         </div>
       </div>
+      <FutureWeather weatherData={weatherInfo} weatherIcon={renderSwitch} />
     </section>
   );
 };

@@ -4,19 +4,10 @@ import React, { Component } from 'react';
 import './../../App.css';
 
 const Search = (props) => {
-  // handleInputChange = (event) => {
-  //   console.log('handleinput');
-  //   // const query = this.props.query;
-  //   const value = event.target.value;
-  //   this.setState({
-  //     name: value
-  //   });
-  // };
-
   return (
     <header className="app__header">
       <nav className="nav-bar">
-        <form>
+        <form onSubmit={props.handleSubmit}>
           <input
             id="search-input"
             type="text"
