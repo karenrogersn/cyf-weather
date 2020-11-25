@@ -1,24 +1,25 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-constructor */
+import '../Search/search.css';
 import React, { Component } from 'react';
-import './../../App.css';
 
 const Search = (props) => {
   return (
-    <header className="app__header">
-      <nav className="nav-bar">
-        <form onSubmit={props.handleSubmit}>
-          <input
-            id="search-input"
-            type="text"
-            placeholder="Type in a city name"
-            onChange={props.handleInputChange}
-            value={props.cityQuery}
-          />
-          <button onClick={props.click}>FIND WEATHER</button>
-        </form>
-      </nav>
-    </header>
+    <nav className='nav-bar'>
+      <form className='form' onSubmit={props.handleSubmit}>
+        <input
+          className='input'
+          id='search-input'
+          type='text'
+          placeholder='Type in a city name'
+          onChange={props.handleInputChange}
+          value={props.cityQuery}
+        />
+        <button className='button' onClick={props.click}>
+          find weather
+        </button>
+      </form>
+    </nav>
   );
 };
 

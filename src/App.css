@@ -4,17 +4,19 @@
 }
 
 .app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  transition: background-color 1s ease-in;
+  transition: background-color 1s ease-in-out;
+  background-color: rgb(156, 206, 244);
+  /* background-color: rgb(162, 182, 202); */
+  /* background-color: rgb(36, 145, 250); */
 }
 
 body {
   font-family: 'Raleway', sans-serif;
 }
 
-.app__header,
-.app__main {
+.app-main {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -22,163 +24,4 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(156, 206, 244);
-}
-
-/*  Search bar */
-
-.nav-bar {
-  background-color: rgb(117, 158, 218);
-  font-family: 'Raleway', sans-serif;
-  width: 100%;
-  height: 5em;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-}
-
-.nav-bar > form {
-  margin-left: 1em;
-  font-family: 'Raleway', sans-serif;
-}
-
-.nav-bar > form > input {
-  border: none;
-  border-color: transparent;
-  background-color: transparent;
-  border-style: none;
-  border-bottom: solid rgb(47, 64, 138);
-  border-width: 0.1px;
-  margin-right: 1em;
-  /* outline property set to none allows to remove border when input is clicked */
-  outline: none;
-}
-.form {
-  display: flex;
-}
-
-/* ::placeholder --> pseudo element to target the placeholder whithin the input */
-input::placeholder {
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-}
-
-input,
-select,
-textarea {
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-}
-
-button {
-  border: none;
-  font-family: 'Raleway', sans-serif;
-  color: rgb(47, 64, 138);
-  background-color: rgb(88, 121, 199);
-  height: 3em;
-  width: 10em;
-}
-
-/* Current weather */
-
-.app-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.forecast-img {
-  height: 9em;
-  width: 9em;
-  /* center the img inside the div */
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  margin-top: 5em;
-}
-
-.forecast-caption {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.forecast-caption > p {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-}
-
-.temperature {
-  color: rgb(39, 51, 113);
-  text-align: center;
-}
-
-.temperature > p > strong {
-  margin-right: 0.5em;
-  font-size: 1.1em;
-}
-
-.percentages > ul {
-  list-style-type: none;
-  color: rgb(39, 51, 113);
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-}
-
-.percentages > ul > li {
-  margin: 5px;
-  font-size: 13px;
-}
-/* Future weather */
-
-.next-forecast {
-  height: 4em;
-  width: 4em;
-}
-
-.detailed-forecast {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2em;
-}
-
-.detailed-forecast > div {
-  margin: 5px;
-}
-
-.detailed-forecast > div > p {
-  text-align: center;
-  color: rgb(71, 94, 112);
-  font-weight: bold;
-  font-size: 13px;
-  margin: 1em;
-}
-
-/* Responsive design */
-
-@media only screen and (min-width: 700px) {
-  .detailed-forecast {
-    flex-wrap: nowrap;
-  }
-
-  .detailed-forecast > div {
-    margin: 10px;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .detailed-forecast > div {
-    margin: 12px;
-  }
 }
