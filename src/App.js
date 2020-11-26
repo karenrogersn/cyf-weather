@@ -3,6 +3,7 @@ import './App.css';
 
 import CurrentWeather from '../src/components/CurrentWeather/CurrentWeather.jsx';
 import Search from '../src/components/Search/Search.jsx';
+import Error from '../src/components/Error/Error.jsx';
 // import { backgroundColor } from './utils/Utils';
 
 import axios from 'axios';
@@ -12,7 +13,8 @@ require('dotenv').config();
 class App extends Component {
   state = {
     weatherInCities: [],
-    query: ''
+    query: '',
+    errorMessage: null
   };
 
   componentDidMount() {
@@ -35,7 +37,9 @@ class App extends Component {
           });
         })
         .catch((error) => {
-          console.log(error.response.data.message);
+          // console.log(error, 'error');
+          // console.log(error.response.data.message);
+          this.setState({ errorMessage: 'Please try again...' });
         });
     }
   };
@@ -52,18 +56,27 @@ class App extends Component {
     event.preventDefault();
   }
 
+  clearFunction = () => {
+    this.setState({ errorMessage: null });
+  };
+
   render() {
     return (
       <div className='app'>
+        {this.state.errorMessage && (
+          <Error onClose={this.clearFunction}>{this.state.errorMessage}</Error>
+        )}
         <Search
           handleSubmit={this.handleSubmit}
           cityQuery={this.state.query}
           click={this.fetchWeatherData}
           handleInputChange={this.updateSearchQuery}
         />
-        <main className='app-main'>
-          <CurrentWeather weatherData={this.state.weatherInCities} />
-        </main>
+        {this.state.weatherInCities && !this.state.errorMessage && (
+          <main className='app-main'>
+            <CurrentWeather weatherData={this.state.weatherInCities} />
+          </main>
+        )}
       </div>
     );
   }

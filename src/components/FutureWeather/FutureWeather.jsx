@@ -8,7 +8,7 @@ const FutureWeather = (props) => {
   let weatherInfo = props.weatherData;
 
   if (!weatherInfo) {
-    return 'No info to display';
+    return 'City not found';
   }
 
   const weatherData = weatherInfo.map((element) => {
