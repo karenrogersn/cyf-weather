@@ -10,6 +10,8 @@ import rain from '../img/weather-icons/rain.svg';
 import snow from '../img/weather-icons/snow.svg';
 import storm from '../img/weather-icons/storm.svg';
 
+//function to display the weather img according to the weather of the city we're visiting
+
 export const weatherFunction = (id) => {
   switch (true) {
     case id < 300:
@@ -48,6 +50,8 @@ let $searchBtn = document.querySelector('.button');
 // let lightBlue = 'rgb(156, 206, 244)'; //color1
 // let blue = 'rgb(36, 145, 250)'; //color2
 // let grey = 'rgb(162, 182, 202)'; //color3
+
+//function tu change the background color according to the weather of the city we're visiting.
 
 export const backgroundColor = (id, lightBlue, blue, grey) => {
   $searchBtn.addEventListener(
