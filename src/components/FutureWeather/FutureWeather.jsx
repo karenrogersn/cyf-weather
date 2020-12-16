@@ -1,53 +1,30 @@
 import React from 'react';
-import overcast from '../../img/weather-icons/weather02-512.jpg';
-// import FutureWeatherSingle from './../FutureWeatherSingle/FutureWeatherSingle';
+
 import './../../App.css';
+import '../FutureWeather/FutureWeather.css';
+import { weatherFunction } from '../../utils/Utils';
 
 const FutureWeather = (props) => {
-  //passing data from json file as props
-  const jsonData = props.FakeWeather;
-  return (
-    <div>
-      {/* <FutureWeatherSingle jsonData={props.jsonData} /> */}
-      <section className="detailed-forecast">
-        <div>
-          <p>{jsonData.list[5].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[5].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[6].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[6].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[7].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[7].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[8].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[8].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[9].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[9].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[10].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[10].main.temp}</p>
-        </div>
-        <div>
-          <p>{jsonData.list[11].dt_txt.slice(-8, -3)}</p>
-          <img className="next-forecast" src={overcast} alt="clouds icon" />
-          <p>{jsonData.list[11].main.temp}</p>
-        </div>
-      </section>
-    </div>
-  );
+  let weatherInfo = props.weatherData;
+
+  if (!weatherInfo) {
+    return 'City not found';
+  }
+
+  const weatherData = weatherInfo.map((element) => {
+    return (
+      <ul className='next-forecast' key={element.dt}>
+        {/* time */}
+        <li className='caption'>{element.dt_txt.slice(-8, -3)}</li>
+        {/* icon */}
+        <li>{weatherFunction(element.weather[0].id)}</li>
+        {/* temperature */}
+        <li className='caption'>{Math.round(element.main.temp)}&deg;C</li>
+      </ul>
+    );
+  });
+
+  return <div className='forecast-container'>{weatherData}</div>;
 };
 
 export default FutureWeather;

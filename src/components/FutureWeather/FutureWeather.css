@@ -1,0 +1,57 @@
+/* Future weather */
+
+.next-forecast {
+  list-style-type: none;
+  height: auto;
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.forecast-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4em 0;
+}
+
+/*  Time & temperature forecast for the next 24 hrs */
+.caption {
+  text-align: center;
+  color: rgb(71, 94, 112);
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+/* Responsive design */
+
+@media only screen and (max-width: 768px) {
+  .caption {
+    font-size: 0.9rem;
+  }
+  .forecast-container {
+    padding: 3em 0;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .forecast-container {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 2em 0;
+  }
+  .caption {
+    font-size: 0.8rem;
+    margin: 0.8rem;
+  }
+  .next-forecast {
+    flex: 25%;
+    margin: 10px 0;
+  }
+}

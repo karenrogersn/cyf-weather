@@ -1,0 +1,175 @@
+.general-forecast {
+  width: 80%;
+  margin-top: 6rem;
+}
+
+.forecast-img {
+  height: auto;
+  width: 45%;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-block-start: 0;
+  margin-bottom: 2rem;
+}
+
+.temperature,
+.percentages {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.temperature {
+  margin-bottom: 1rem;
+}
+
+.current-temp {
+  color: rgb(39, 51, 113);
+  display: flex;
+  justify-content: space-around;
+}
+
+.temp-capitalize {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.temp-degrees {
+  font-size: 1.15rem;
+}
+
+.percentages {
+  display: flex;
+  flex-direction: row;
+}
+
+.category {
+  list-style-type: none;
+  color: rgb(39, 51, 113);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  width: 50%;
+}
+
+.data {
+  margin: 5px;
+  font-size: 1rem;
+}
+
+/* Responsive design */
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    width: 50%;
+  }
+  .temperature,
+  .percentages {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .description {
+    font-size: 1.1rem;
+    margin-block-start: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .temp-capitalize {
+    font-size: 1.1rem;
+  }
+  .temp-degrees {
+    font-size: 1rem;
+  }
+  .data {
+    font-size: 0.9rem;
+  }
+  .general-forecast {
+    margin-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .description {
+    font-size: 1rem;
+  }
+  .temp-capitalize {
+    font-size: 1rem;
+  }
+  .temp-degrees {
+    font-size: 0.9rem;
+  }
+  .data {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .general-forecast {
+    width: 90%;
+  }
+  .forecast-img {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .temperature,
+  .percentages {
+    width: 90%;
+  }
+  .percentages {
+    flex-direction: column;
+    align-items: center;
+  }
+  .description,
+  .temp-capitalize {
+    font-size: 0.9rem;
+  }
+  .temp-degrees {
+    font-size: 0.8rem;
+  }
+  .current-temp,
+  .category {
+    justify-content: space-evenly;
+  }
+  .category {
+    width: 80%;
+  }
+  .forecast-img {
+    width: 40%;
+  }
+  .container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .container {
+    width: 90%;
+  }
+  .description,
+  .temp-capitalize {
+    font-size: 1rem;
+  }
+  .temp-degrees,
+  .data {
+    font-size: 0.9rem;
+  }
+}
